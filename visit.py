@@ -36,9 +36,9 @@ class Connect:
        self.req.set_proxy(proxy,'http')
        if count%4==0:
          if self.con_total > 2*count:
-            time_stamp = 6
+            time_stamp = 1
          else:
-            time_stamp = 3
+            time_stamp = 1
        threading.Thread(target=self.visitURL).start()
        time.sleep(time_stamp)
        count += 1
@@ -50,7 +50,7 @@ class Connect:
       except:
        self.con_failed += 1
       self.con_total += 1
-      print self.con_total,"total connections, success = ",self.con_sucess," failed= ",self.con_failed
+      print "\033[1;32mNo.",self.con_total,"\n\033[1;34m+ ",self.con_sucess,"\033[1;33mViewers\n\033[1;31mGagal = ",self.con_failed
 
    def visitURL(self):
       self.prep_con()
